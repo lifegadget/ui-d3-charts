@@ -1,0 +1,82 @@
+[
+    {
+        "markers": [
+            250
+        ],
+        "measures": [
+            220,
+            270
+        ],
+        "ranges": [
+            150,
+            225,
+            300
+        ],
+        "subtitle": "US$, in thousands",
+        "title": "Revenue"
+    },
+    {
+        "markers": [
+            26
+        ],
+        "measures": [
+            21,
+            23
+        ],
+        "ranges": [
+            20,
+            25,
+            30
+        ],
+        "subtitle": "%",
+        "title": "Profit"
+    },
+    {
+        "markers": [
+            550
+        ],
+        "measures": [
+            100,
+            320
+        ],
+        "ranges": [
+            350,
+            500,
+            600
+        ],
+        "subtitle": "US$, average",
+        "title": "Order Size"
+    },
+    {
+        "markers": [
+            2100
+        ],
+        "measures": [
+            1000,
+            1650
+        ],
+        "ranges": [
+            1400,
+            2000,
+            2500
+        ],
+        "subtitle": "count",
+        "title": "New Customers"
+    },
+    {
+        "markers": [
+            4.4
+        ],
+        "measures": [
+            3.2,
+            4.7
+        ],
+        "ranges": [
+            3.5,
+            4.25,
+            5
+        ],
+        "subtitle": "out of 5",
+        "title": "Satisfaction"
+    }
+]

@@ -3,23 +3,13 @@ html, body {
 	margin: 20px;
 }
 h1 {
-	font-size: 3rem;
 	margin-bottom: .25rem;
 	padding-bottom: 0px;
 	font-family: "Courier New", Courier, monospace;
 }
-a {
-	text-decoration: none;
-	font-weight: 500;
-	margin: auto 2px auto 2px;
-}
-a:hover {
-	background: lightgrey;
-	border-radius: 5px;
-}
 h2 {
 	font-weight: 100;
-	font-size: 1.7rem;
+	font-size: 1.8rem;
 	font-style: italic;
 	color: darkgrey;
 	margin-top: .5rem;
@@ -40,8 +30,6 @@ code {
 	font-family: "Courier New", Courier, monospace;
 	font-size: 9pt;
 	line-spacing: 1rem;
-	color: rgb(63, 63, 63);
-	background-color: rgb(235, 234, 234);
 }
 
 note {
