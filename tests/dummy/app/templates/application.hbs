@@ -1,27 +1,202 @@
+<div class="jumbotron">
+  <h1>ui-d3-charts</h1>
+  <h2>data visualisation using d3 awesomeness in ember components</h2>
+</div>
+
 <div class="container">
-	<h2 id="title">ui-d3-charts</h2>
-
-	<p>
-		Includes the following chart components:
-	</p>
-	<ul>
-		<li><code>ui-bullet-chart</code></li>
-		<li><code>ui-bar-chart</code></li>
-		<li><code>ui-tree-chart</code></li>
-		<li><code>ui-arc-chart</code></li>
-		<li><code>ui-pie-chart</code></li>
-	</ul>
-
-	<h3>ui-bullet-chart</h3>
-	{{ui-bullet-chart}}
-
-	<h3>ui-bar-chart</h3>
-
-	{{ui-bar-chart}}
-
-	<h3>ui-tree-chart</h3>
-	{{ui-tree-chart}}
-
-	<h3>ui-arc-chart</h3>
-	{{ui-arc-tween}}
+	<div class="col-xs-3">
+		<p>Components:</p>
+		<hr/>
+		<ul class="nav-stacked" role="tablist">
+			<li class="tabpane" {{action "tabpane" "bullet"}}>ui-bullet-chart</li>
+			<li class="tabpane" {{action "tabpane" "bar"}}>ui-bar-chart</li>
+			<li class="tabpane" {{action "tabpane" "tree"}}>ui-tree-chart</li>
+			<li class="tabpane" {{action "tabpane" "arc"}}>ui-arc-chart</li>
+			<li class="tabpane" {{action "tabpane" "pie"}}>ui-pie-chart</li>
+			<li class="tabpane" {{action "tabpane" "spark"}}>ui-spark-line</li>
+		</ul>
+		<hr/>
+	</div>
+	<div class="col-xs-9">
+		{{#if chartType.bullet}}
+			<div>
+				<h1>Bullet Charts</h1>
+				<h2>Description</h2>
+				<p>
+					A variation on a bar chart, bullet charts compare a given quantitative measure (such as profit or revenue) against qualitative ranges (e.g., poor, satisfactory, good) and related markers (e.g., the same measure a year ago.  
+				</p>
+			</div>
+		{{/if}}
+		{{#if chartType.bar}}
+			<div>
+				<h1>Bar Charts</h1>
+				<h2>Description</h2>
+				<p>
+					A way to chart quantitative data across a discrete set of ordinal values. 
+				</p>
+				<h2>Data Structure</h2>
+<pre>[
+  [
+	{"name": "2015-01", "value": 123},
+	{"name": "2015-02", "value": 456},
+  ],
+  [
+	{"name": "2015-01", "value": 1234},
+	{"name": "2015-02", "value": 456},	
+  ]
+]
+</pre>
+				<p>
+					Is represented by an array of data "series" where each series has an array 
+					of name/value pairs. These name value pairs at a minimum are expected to have
+					<code>name</code> (the ordinal scales value) and 
+					<code>value</code> (is the quantitative value) properties.
+					Other properties can be included as well but they will be ignored in the primary
+					visualisation (they can be made to be displayed in the popup)
+				</p>
+			</div>
+		{{/if}}
+		{{#if chartType.tree}}
+			<div>
+				<h1>Tree Charts</h1>
+				<h2>Description</h2>
+				<p>
+					trees
+				</p>
+			</div>
+		{{/if}}
+	</div>
+	<div class="clearfix col-xs-12">
+		{{#if chartType.bullet}}
+			<h2>Examples</h2>
+			{{ui-bullet-chart}}			
+		{{/if}}
+		{{#if chartType.bar}}
+			<h2>Example</h2>
+			{{ui-bar-chart timeFormat='%Y-%m' yLabel='Value ($)' valueLabel=true}}
+			<h2>Key Parameters</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Param</th>
+					<th>Description</th>
+				</tr>
+				<tr>
+					<td><code>width</code></td>
+					<td>
+						By default is set to 'auto' which uses the full width available in the 
+						document's position in the DOM.
+					</td>
+				</tr>
+				<tr>
+					<td><code>height</code></td>
+					<td>
+						By default is set to 'auto' which uses the full height available in the 
+						document's position in the DOM. If height is zero but width exists, it will
+						set height based on a 3:2 aspect ratio to width. 
+					</td>
+				</tr>
+				<tr>
+					<td><code>xLabel</code>/<code>yLabel</code></td>
+					<td>
+						Short description for x and y-axis, default is none.
+					</td>
+				</tr>
+				<tr>
+					<td><code>xLabelPosition</code>/ <code>yLabelPosition</code></td>
+					<td>
+						State where the axis-label should be placed. Values for y-axis include ['left','right','inner-left']. Inner-left is
+						the default. For x-axis values are ['top','bottom'], default is bottom.
+					</td>
+				</tr>
+				<tr>
+					<td><code>timeFormat</code></td>
+					<td>
+						The d3 date-format for the ordinal series, default is false (meaning it is not a date series). An example of 
+						the format might be something like <code>"%Y-%m"</code>
+					</td>
+				</tr>
+				<tr>
+					<td><code>min</code>/<code>max</code></td>
+					<td>
+						By default a bar chart will use a minimum starting point of 0 and a maximum of "auto" which dynamically 
+						becomes the maximal number in the data set. If you want to explicitly state the max and min values then 
+						you can do so with these params.
+					</td>
+				</tr>
+				<tr>
+					<td><code>valueLabel</code></td>
+					<td>
+						By default <i>false</i>, possible values are [false, 'all', 'max', 'peaks'].
+					</td>
+				</tr>
+			</table>
+			
+			<h2>CSS Classes</h2>
+			<p>
+				Where appropriate this component will leave styling to CSS. In order to 
+				accomodate it will expose the following properties:
+			</p>
+			<table class="table table-striped">
+				<tr>
+					<th class="xs-col-1">Area</th>
+					<th class="xs-col-3">Property</th>
+					<th class="xs-col-8">Description</th>
+				</tr>
+				<tr>
+					<td>Bars</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>bar.s[x]</td>
+					<td>each bar is styled as 'bar' and each ordinal series is added as a subscripted value (aka, s0, s1, s2)</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>min</td>
+					<td>minimal value in series</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>max</td>
+					<td>maximal value in series</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>zero</td>
+					<td>if value is zero</td>
+				</tr>
+				<tr>
+					<td>Axis</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>x.axis</td>
+					<td>ticks along the x-axis</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>x.axis-label</td>
+					<td>the label to describe the x-axis</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>y.axis</td>
+					<td>text along the y-axis</td>
+				</tr>
+			</table>
+			
+		{{/if}}
+		{{#if chartType.tree}}
+			<h2>Example</h2>
+			{{ui-tree-chart}}				
+		{{/if}}
+		{{#if chartType.arc}}
+			<h2>Example</h2>
+			{{ui-arc-tween}}				
+		{{/if}}
+	</div>
 </div>

@@ -69,3 +69,22 @@ note {
 .link.selected {
 	font-weight: 900;
 }
+
+ul {
+	padding: 0px;
+	margin: 0px;
+}
+
+li.tabpane {
+	cursor: pointer;
+	padding-left: 5px;
+}
+li.tabpane:hover {
+	background: lightgrey;
+	border: 5px;
+	border-radius: 3px;
+}
+
+table li {
+	margin-left: 35px;
+}

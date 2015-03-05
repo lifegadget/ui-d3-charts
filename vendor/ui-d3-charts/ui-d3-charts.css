@@ -1,0 +1,17 @@
+.bar-chart .bar {
+	fill: steelblue;
+}
+.bar-chart .bar:hover {
+	fill: blue;
+}
+
+.bar-chart .axis {
+	font: 10px sans-serif;
+}
+
+.bar-chart .axis path,
+.bar-chart .axis line {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}

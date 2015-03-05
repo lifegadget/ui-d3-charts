@@ -78,6 +78,17 @@ export class Bullet {
     setRanges(value) {
       this.config.ranges = value;
     }
+
+	get colors() {
+		return this.config.colors;
+	}
+    set colors(value) {
+      this.config.colors = value;
+    }
+    setColors(value) {
+      this.config.colors = value;
+    }
+
 	
 	get markers() {
 		return this.config.markers;
